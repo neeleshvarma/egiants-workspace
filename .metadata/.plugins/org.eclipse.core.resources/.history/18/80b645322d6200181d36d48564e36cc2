@@ -1,0 +1,50 @@
+package document;
+
+import javax.annotation.Generated;
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection="users")
+public class Users {
+	
+	
+	private String lastname;
+	private String name;
+	private Integer weight;
+	
+	public Users(String id, String name, Integer weight) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.weight = weight;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Integer getWeight() {
+		return weight;
+	}
+
+	public void setWeight(Integer weight) {
+		this.weight = weight;
+	}
+	
+	
+
+}

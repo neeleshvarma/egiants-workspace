@@ -1,0 +1,47 @@
+package document;
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document
+public class Users {
+	
+	@Id
+	private Integer id;
+	private String name;
+	private Float weight;
+	
+	public Users(Integer id, String name, Float weight) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.weight = weight;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Float getWeight() {
+		return weight;
+	}
+
+	public void setWeight(Float weight) {
+		this.weight = weight;
+	}
+	
+	
+
+}

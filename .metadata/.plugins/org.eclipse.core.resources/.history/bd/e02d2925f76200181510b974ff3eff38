@@ -1,0 +1,10 @@
+spring.application.name = Task 2 Mongo DB
+
+#Mongo Config
+spring.data.mongodb.host=18.219.201.33
+spring.data.mongodb.port=27017
+spring.data.mongodb.database=mongo
+spring.data.mongodb.repositories.enabled=true
+
+
+server.port = 8091

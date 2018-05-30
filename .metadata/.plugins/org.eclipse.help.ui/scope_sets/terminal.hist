@@ -1,0 +1,5 @@
+#Wed May 23 18:22:22 CDT 2018
+__DEFAULT__=false
+org.eclipse.help.ui.localSearch.master=true
+org.hibernate.eclipse.help.HibernateWiki.master=true
+expression=terminal

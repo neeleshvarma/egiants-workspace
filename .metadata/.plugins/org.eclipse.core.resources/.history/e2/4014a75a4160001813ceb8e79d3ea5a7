@@ -1,0 +1,26 @@
+package config;
+
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
+
+import document.Users;
+import repository.UserRepository;
+
+
+
+
+@EnableMongoRepositories(basePackageClasses  = UserRepository.class)
+@Configuration
+public class MongoDBConfig {
+//	@Bean
+//	CommandLineRunner commandLineRunner(UserRepository userRepository) {
+//		return strings -> {
+//			userRepository.save(new Users(101, "Neelesh", 162));
+//			userRepository.save(new Users(102, "User2", 170));
+//			userRepository.save(new Users(103, "Neelesh", 162));
+//			
+		};
+	}
+} 

@@ -1,0 +1,5 @@
+server.port=9999
+
+amazon.dynamodb.endpoint=com.amazonaws.us-east-2.dynamodb
+amazon.aws.accesskey=AKIAJLGCDODB36QBBHDQ
+amazon.aws.secretkey=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
