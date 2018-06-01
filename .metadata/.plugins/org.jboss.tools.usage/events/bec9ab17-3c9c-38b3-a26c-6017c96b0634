@@ -1,0 +1,11 @@
+#Thu May 31 16:29:00 CDT 2018
+vl=How many times the 'Finish' button pressed during the day
+l=Wizard class name
+ct=jbt
+d=1527802140975
+c=0
+cmp=usage
+a=finishWizard
+cl=com.amazonaws.eclipse.datatools.enablement.simpledb.internal.ui.connection.NewSimpleDBConnectionProfileWizard
+v=2.2.102
+s=1

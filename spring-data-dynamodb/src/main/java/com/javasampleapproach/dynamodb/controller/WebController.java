@@ -1,66 +1,84 @@
 package com.javasampleapproach.dynamodb.controller;
 
-import java.util.Arrays;
+
+import java.util.List;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.javasampleapproach.dynamodb.model.Customer;
 import com.javasampleapproach.dynamodb.repo.CustomerRepository;
+
 
 @RestController
 public class WebController {
 
 	@Autowired
 	CustomerRepository repository;
-
-	@RequestMapping("/delete")
-	public String delete() {
-		repository.deleteAll();
-		return "Done";
-	}
-
-	@RequestMapping("/save")
-	public String save() {
-		// save a single Customer
-		repository.save(new Customer("JSA-1", "Jack", "Smith"));
-
-		// save a list of Customers
-		repository.save(Arrays.asList(new Customer("JSA-2", "Adam", "Johnson"), new Customer("JSA-3", "Kim", "Smith"),
-				new Customer("JSA-4", "David", "Williams"), new Customer("JSA-5", "Peter", "Davis")));
-
-		return "Done";
-	}
-
-	@RequestMapping("/findall")
-	public String findAll() {
-		String result = "";
-		Iterable<Customer> customers = repository.findAll();
-
-		for (Customer cust : customers) {
-			result += cust.toString() + "<br>";
+	
+	@DeleteMapping("delete/{id}")
+	public boolean deleteUser(@PathVariable String id) throws Exception {
+		if(repository.exists(id))
+		{
+			repository.delete(id); 
+			return true;
 		}
-
-		return result;
-	}
-
-	@RequestMapping("/findbyid")
-	public String findById(@RequestParam("id") String id) {
-		String result = "";
-		result = repository.findOne(id).toString();
-		return result;
-	}
-
-	@RequestMapping("/findbylastname")
-	public String fetchDataByLastName(@RequestParam("lastname") String lastName) {
-		String result = "";
-
-		for (Customer cust : repository.findByLastName(lastName)) {
-			result += cust.toString() + "<br>";
+		else
+		{
+			throw new Exception("userId doesnt exists");
 		}
-
-		return result;
+		
 	}
+	
+	@PostMapping("/save")
+	public void save(@RequestBody Customer users) throws Exception {
+		if(!repository.exists(users.getId()))
+			{
+					repository.save(users);
+			}
+			else {			
+				throw new Exception("userId already exists");
+			}
+	
+    }
+	
+	@GetMapping("/findall")
+	public List<Customer> getAll() throws Exception{
+		List<Customer> customers = (List<Customer>) repository.findAll();
+		return customers;
+	}
+
+
+	@GetMapping("/{id}")
+	public Customer getUser(@PathVariable String id) throws Exception  {
+		if(repository.exists(id))
+		{
+			return repository.findOne(id);
+		}
+		else
+		{
+			throw new Exception("userId doesnt exists");
+		}
+	}
+	
+
+	@PutMapping("/put/{id}")
+	public void update(@RequestBody Customer customer, @PathVariable String id) throws Exception {
+		if(repository.exists((customer.getId())))
+		{
+			repository.save(customer);
+		}
+		else {
+			throw new Exception("userId doesnt Exist");
+		}
+		
+	}
+	
 }

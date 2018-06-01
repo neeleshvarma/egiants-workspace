@@ -1,0 +1,5 @@
+/Users/neeleshvarmadhanalakota/eclipse-workspace/spring-data-dynamodb/src/main/java/com/javasampleapproach/dynamodb/model/Customer.java
+/Users/neeleshvarmadhanalakota/eclipse-workspace/spring-data-dynamodb/src/main/java/com/javasampleapproach/dynamodb/controller/WebController.java
+/Users/neeleshvarmadhanalakota/eclipse-workspace/spring-data-dynamodb/src/main/java/com/javasampleapproach/dynamodb/repo/CustomerRepository.java
+/Users/neeleshvarmadhanalakota/eclipse-workspace/spring-data-dynamodb/src/main/java/com/javasampleapproach/dynamodb/SpringDataDynamoDbApplication.java
+/Users/neeleshvarmadhanalakota/eclipse-workspace/spring-data-dynamodb/src/main/java/com/javasampleapproach/dynamodb/config/DynamoDBConfig.java

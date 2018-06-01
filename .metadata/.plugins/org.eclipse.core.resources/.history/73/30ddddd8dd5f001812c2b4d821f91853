@@ -1,9 +1,0 @@
-package com.mongodb.springbootmongodb;
-
-import org.springframework.data.mongodb.repository.MongoRepository;
-
-import document.Users;
-
-public interface UserRepository extends MongoRepository<Users, Integer> {
-
-}
